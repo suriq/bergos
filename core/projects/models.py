@@ -23,6 +23,13 @@ class Task(models.Model):
     start_date = models.DateField()
     deadline = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
+    parent = models.ForeignKey(
+        'self',
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+        related_name='subtasks'
+    )
 
     def __str__(self):
         return f"{self.name} ({self.project})"
