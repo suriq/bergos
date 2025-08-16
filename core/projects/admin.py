@@ -19,6 +19,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('name', 'project', 'start_date', 'deadline', 'end_date')
+    list_display = ('name', 'parent')
     search_fields = ('name', 'project__name')
-    list_filter = ('project',)
+    list_filter = ('parent',)
